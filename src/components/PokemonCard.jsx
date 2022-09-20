@@ -2,10 +2,12 @@ import { StarOutlined } from '@ant-design/icons';
 import { Card } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 
-const PokemonCard = ({ name, image }) => {
+const PokemonCard = ({ name, image, abilities }) => {
+  const getCapitalizedString = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+
   return (
     <Card
-      title={name}
+      title={getCapitalizedString(name)}
       cover={
         <img
           src={image}
@@ -14,7 +16,7 @@ const PokemonCard = ({ name, image }) => {
       }
       extra={<StarOutlined />}
     >
-      <Meta description='fire, magic' />
+      <Meta description={abilities} />
     </Card>
   );
 };
