@@ -19,3 +19,22 @@ export const featuring = (store) => (next) => (actionInfo) => {
   };
   next(updatedActionInfo);
 };
+
+export const numeration = store => next => actionInfo => {
+  const newPayload = actionInfo.action.payload.map((pokemon, index) => {
+    return {
+      ...pokemon,
+      name: `${index + 1} ${pokemon.name}`,
+    };
+  });
+
+  const updatedActionInfo = {
+    ...actionInfo,
+    action: {
+      ...actionInfo.action,
+      payload: newPayload,
+    },
+  };
+
+  next(updatedActionInfo);
+};
