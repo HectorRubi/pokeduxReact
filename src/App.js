@@ -12,7 +12,6 @@ import { useSelector, useDispatch } from 'react-redux';
 function App() {
   const pokemons = useSelector(state => state.pokemons);
   const dispatch = useDispatch();
-  console.log("🚀 ~ file: App.js ~ line 12 ~ App ~ pokemons", pokemons);
 
   useEffect(() => {
     const fetchPokemons = async () => {
