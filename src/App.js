@@ -18,7 +18,7 @@ function App() {
     const fetchPokemons = async () => {
       dispatch(setLoading(true));
       const pokemonsRes = await getPokemon();
-      dispatch(getPokemonsWithDetails(pokemonsRes));
+      await dispatch(getPokemonsWithDetails(pokemonsRes));
       dispatch(setLoading(false));
     };
 
